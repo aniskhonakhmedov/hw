@@ -1,5 +1,5 @@
 <template>
-  <div id="products">
+  <div id="empty">
     
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
       
     };
   },
-  name: "Products",
+  name: "Empty",
 };
 </script>
 
