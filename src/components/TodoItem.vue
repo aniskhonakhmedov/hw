@@ -1,17 +1,19 @@
 <template>
-  <div id="TodoItem">
+  <div class="TodoItem">
     <div class="aboutToDo">
       <div>
-        <h5>{{ parent_info.title }}</h5>
-        <i>{{ parent_info.time }} {{parent_info.id}}</i>
+        <h5>{{ item.title }}</h5>
+        <i>{{ item.time }} </i>
       </div>
       <div class="X">
-        <img
-          src="https://cdn-icons.flaticon.com/png/512/3114/premium/3114815.png?token=exp=1642787118~hmac=95a0bc725a5bcbedcaf11b0a8fb506bb"
+        <button
+         style="border: none; width: fit-content; height: fit-content; background: none; filter: invert(100%);"
           width="15px"
           alt="X"
-          @click="$emit('delete_todo', parent_info.id)"
-        />
+          @click="$emit('delete_todo', item.id)"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle"><circle id="circle" cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -20,7 +22,7 @@
 <script>
 export default {
   name: "TodoItem",
-  props: ["parent_info"],
+  props: ["item"],
 };
 </script>
 

@@ -7,7 +7,7 @@
       <TodoItem
         v-for="item of todos"
         :key="item.key"
-        :parent_info="item"
+        :item="item"
         v-on:delete_todo="remove_todo"
       />
     </main>
@@ -22,9 +22,8 @@ export default {
     return {
       todos: [
         {
-          time: "18:44",
+          time: new Date().getHours() + ':' + new Date().getMinutes(),
           title: "Купить молоко",
-          isDeleted: false,
         },
       ],
     };
@@ -33,7 +32,7 @@ export default {
     ParentFunction: function (text) {
       this.todos.push({
         id: this.todos.forEach((item, i) => item.id = i),
-        time: new Date().getHours() + ":" + new Date().getSeconds(),
+        time: new Date().getHours() + new Date().getMinutes() + ':' + new Date().getHours() ,
         title: text,
         isDeleted: false,
       });
@@ -80,7 +79,9 @@ main {
   padding-top: 20px;
   margin-top: 20px;
 }
-#TodoItem .aboutToDo {
+
+.TodoItem .aboutToDo {
+  transform: translateY(15px);
   border-radius: 10px;
   border: 1px solid #007fff;
   background: #f0f0f0;
@@ -94,6 +95,19 @@ input[type="text"] {
   font-size: 16px;
   font-weight: 600;
   padding-left: 15px;
+}
+
+svg:hover {
+  filter: invert(100%);
+  cursor: pointer;
+  fill: red;
+}
+svg:hover #circle  {
+  fill: red;
+}
+
+svg:hover{
+  fill:red;
 }
 
 h5 {
